@@ -1,0 +1,233 @@
+/*html { height: 100%; font-size: 12px; }*/
+// @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "_variables";
+
+* {
+    box-sizing: border-box;
+}
+html {
+    // font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    margin: 0;
+    font-size: 14px;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a {
+    color: $brand-color;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        transition: background-color, color, 0.3s;
+    }
+}
+img {
+    max-width: 100%
+}
+
+/* 
+书写顺序
+
+位置属性(position, top, right, z-index, display, float等)
+大小(width, height, padding, margin)
+文字系列(font, line-height, letter-spacing, color- text-align等)
+背景(background, border等)
+其他(animation, transition等)
+ */
+
+/* bootstrap grid
+------------------------------------------------------- */
+// $icon-font-path:"../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/grid";
+
+// Floats
+// -------------------------
+
+.clearfix {
+    @include clearfix;
+}
+.center-block {
+    @include center-block;
+}
+.pull-right {
+    float: right !important;
+}
+.pull-left {
+    float: left !important;
+}
+
+/* banner
+------------------------------------------------------- */
+.banner {
+    min-height: 750px;
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+.banner-text {
+    padding-top: 25%;
+}
+
+/* header
+------------------------------------------------------- */
+#header {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+
+    &.fixed {
+        background-color: #292c47;
+
+        .header-content {
+            border-bottom: 0 none;
+            padding: 25px 0;
+        }
+        .nav-toggle {
+            top: 11.5px;
+        }
+    }
+}
+.header-content {
+    width: 100%;
+    max-width: 1170px;
+    padding: 40px 0;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: padding .3s;
+
+    .logo {
+        float: left;
+    }
+    .navigation, .primary-nav {
+        float: right;
+
+        li {
+            display: inline-block;
+        }
+        a {
+            margin-left: 40px;
+        }
+    }
+    a {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .nav-toggle {
+        display: none
+    }
+}
+.nav-toggle {
+    position: absolute;
+    right: 5%;
+    top: 27px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #e84545;
+    text-indent: 100%;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s;
+
+    span {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        height: 3px;
+        width: 18px;
+        background-color: $white;
+        margin-left: -9px;
+        margin-top: -1.5px;
+
+        &:before, &:after {
+            content: " ";
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            display: inline-block;
+            height: 3px;
+            width: 18px;
+            background-color: $white;
+            margin-left: -9px;
+            margin-top: -1.5px;
+            transition: transform .3s;
+            transform: translateY(6px) rotate(0deg)
+        }
+        &:after {
+            transform: translateY(-6px) rotate(0deg)
+        }
+    }
+    &.close-nav {
+        span {
+            background-color: rgba(255, 255, 255, 0);
+
+            &:before {
+                transform: translateY(0px) rotate(45deg)
+            }
+            &:after {
+                transform: translateY(0px) rotate(-45deg)
+            }
+        }
+    }
+}
+@media  screen  and (max-width:$bp-large) {
+    #header {
+        .header-content {
+            width: 90%;
+        }
+        .nav-toggle {
+            display: block;
+            z-index: 999;
+        }
+        .navigation {
+            background-color: #000;
+            z-index: 998;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+
+            &.open {
+                opacity: .9;
+                transition: all .6s;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .primary-nav {
+            position: absolute;
+            display: block;
+            width: 100%;
+            top: 45%;
+            transform: translateY(-45%);
+
+            li {
+                display: block;
+                padding-bottom: 20px;
+                text-align: center;
+
+                a {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}
