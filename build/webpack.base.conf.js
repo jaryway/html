@@ -46,7 +46,7 @@ module.exports = {
                         fallback: 'style-loader',
                         // use: ['css-loader', 'postcss-loader', 'sass-loader']
                         use: [{
-                            loader: 'css-loader'
+                            loader: 'css-loader',
                             options: {
                                 sourceMap: true,
                             }
