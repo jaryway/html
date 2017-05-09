@@ -1,8 +1,30 @@
 require('./sass/index.scss')
 
 var $ = require('jquery')
+require('flexslider/flexslider.css')
+require('flexslider')
 
 $(function() {
+
+	if ('ontouchstart' in window) {
+
+		// 解决ISO下到顶部了fixed不下拉的bug
+		document.addEventListener('touchmove', function(e) {
+			var scroll = $(window).scrollTop()
+			if (scroll <= 0) {
+				$("#header").css({
+					"position": "absolute"
+				})
+			} else {
+				$("#header").css({
+					"position": "fixed"
+				})
+			}
+
+		});
+	}
+
+
 	$(window).on('scroll', function(argument) {
 		var scroll = $(window).scrollTop()
 
@@ -27,6 +49,15 @@ $(function() {
 			$nav.addClass('open')
 		}
 	})
+
+	$('#slider').flexslider({
+		animation: "slide",
+		controlNav: false,
+		animationLoop: false,
+		slideshow: false,
+		smoothHeight:false,
+		// sync: "#carousel"
+	});
 
 })
 

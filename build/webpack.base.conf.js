@@ -30,7 +30,16 @@ module.exports = {
         }
     },
     module: {
-        rules: [
+        rules: [{
+                test: require.resolve('jquery'),
+                use: [{
+                    loader: 'expose-loader',
+                    options: 'jQuery'
+                }, {
+                    loader: 'expose-loader',
+                    options: '$'
+                }]
+            },
             /*{
                 test: /\.(js)$/,
                 loader: 'eslint-loader',
@@ -41,7 +50,7 @@ module.exports = {
                 }
             },*/
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 use: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
                         // use: ['css-loader', 'postcss-loader', 'sass-loader']
