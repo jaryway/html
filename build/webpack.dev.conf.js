@@ -37,5 +37,25 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      filename: 'news_list.html',
+      template: 'news_list.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'news_detail.html',
+      template: 'news_detail.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'product_list.html',
+      template: 'product_list.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'product_detail.html',
+      template: 'product_detail.html',
+      inject: true
+    }),
   ]
 })

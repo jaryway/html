@@ -1,0 +1,127 @@
+.pagenews {
+}
+.news-title-list {
+    li {
+        padding: .8em 0;
+        line-height: 1.5;
+
+        span {
+            float: right;
+            margin-left: 1em;
+            color: #1a1a1a;
+        }
+        a {
+            text-decoration: none;
+
+            &:active, &:hover {
+                color: #000;
+            }
+        }
+    }
+}
+.content .content-title {
+    font-size: 1.7em;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 20px;
+    clear: both;
+    font-weight: 400;
+}
+.content .content-title strong {
+    padding-left: 10px;
+    border-left: 2px solid #1a1a1a;
+}
+.content .page-tool {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d9d9d9;
+    color: #444;
+}
+.content .content-header {
+    text-indent: 8px;
+    border-left: 2px solid #88b7e0;
+    background-color: #f8f8f8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: #444;
+    line-height: 2;
+}
+.content .content-body {
+    margin-top: 15px;
+    color: #444;
+    line-height: 2;
+}
+.content .content-body img {
+    vertical-align: middle;
+}
+.product-list {
+    width: 100%;
+    clear: both;
+}
+.product-list li {
+    position: relative;
+    float: left;
+    padding: 30px 27px 20px;
+    border: 1px solid #fff;
+    z-index: 1;
+}
+.product-list li.hover, .product-list li:hover {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 2px 2px #ddd;
+    z-index: 2;
+}
+.product-list .p-img {
+    height: 315px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.product-list .p-img a {
+    display: block;
+    vertical-align: middle;
+}
+.product-list .p-img img {
+    width: 200px;
+    height: 315px;
+    vertical-align: middle;
+}
+.product-list .p-name {
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    text-align: center;
+}
+#p_slider {
+    // height: 300px;
+
+    li {
+        vertical-align: middle;
+        height: 100%;
+        display: block;
+    }
+    .flex-viewport {
+        // max-height: 300px;
+    }
+    .slides img {
+        width: auto;
+        display: block;
+        max-height: 600px;
+        max-width: 100%;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
+}
+#p_slider .img-wrap {
+    display: table-cell;
+    width: 1024px;
+    height: 600px;
+    font-size: 118px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+#p_slider .img-wrap img {
+    vertical-align: middle;
+    max-height: 600px;
+    max-width: 100%;
+}

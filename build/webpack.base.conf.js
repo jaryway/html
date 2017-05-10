@@ -83,6 +83,13 @@ module.exports = {
             /*{
                 test: /\.css$/,
                 loader: 'style-loader!css-loader',
+            }, 
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
+                options: {
+                    // interpolate: 'require'
+                }
             }, */
             {
                 test: /\.js$/,

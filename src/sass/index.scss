@@ -13,7 +13,8 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 }
-body {
+html, body {
+    padding: 0;
     margin: 0;
     font-size: 14px;
 }
@@ -24,6 +25,7 @@ ul, li {
 }
 a {
     color: $brand-color;
+    text-decoration: none;
 
     &:hover, &:focus {
         text-decoration: none;
@@ -42,6 +44,10 @@ img {
 }
 .no-padding {
     padding: 0 !important;
+}
+.heading {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* 
@@ -63,6 +69,7 @@ img {
 @import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/grid";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/media";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 
 // Floats
 // -------------------------
@@ -82,31 +89,18 @@ img {
     padding-right: 0;
     padding-left: 0;
 }
-.slider-wrap {
-    margin-top: 120px;
-
-    .homeslider {
-        border: none;
-        margin-bottom: 15px;
-        // height: 400px;
-
-        .img {
-            width: 100%;
-            height: 200px;
-        }
-    }
-}
 
 /* banner
 ------------------------------------------------------- */
-.banner {
-    // min-height: 550px;
+.header {
+    min-height: 99px;
     background-image: url(../images/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
 }
-.banner-text {
+
+/* .banner-text {
     padding-top: 25%;
 
     h1 {
@@ -123,6 +117,7 @@ img {
         margin-bottom: 80px;
     }
 }
+ */
 
 /* header
 ------------------------------------------------------- */
@@ -149,7 +144,7 @@ img {
     max-width: 1170px;
     padding: 40px 0;
     margin: 0 auto;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    // border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     transition: padding .3s;
     // background-color: rgba(255, 255, 255, .07);
 
@@ -266,6 +261,46 @@ img {
     margin-right: auto;
     margin-left: auto;
 }
+
+/* pageslider
+-------------------------------------------------------------- */
+.pageslider {
+    // margin-top: 15px;
+    overflow: hidden;
+}
+.slider-wrap {
+    // margin-top: 120px;
+
+    .homeslider {
+        border: none;
+        margin-bottom: 15px;
+        // height: 400px;
+
+        .img {
+            width: 100%;
+            height: 200px;
+        }
+        .flex-control-nav {
+            bottom: -5px;
+        }
+        .flex-control-paging li a {
+            width: 16px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 0;
+            transition: width .3s;
+            opacity: .6;
+
+            &.flex-active {
+                width: 24px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/* team
+-------------------------------------------------------------- */
 .testimonials {
     background-color: #f4f4f4;
     margin-top: 100px;
@@ -310,6 +345,9 @@ img {
         }
     }
 } */
+
+/* features
+--------------------------------------------------------------- */
 .features {
     .feature-content {
         text-align: center;
@@ -332,12 +370,12 @@ img {
     }
 }
 
-/* works
+/* categories
 ---------------------------------------------- */
-.works {
+.categories {
     // max-width: 1170px;
 
-    .work {
+    .category {
         // min-height: 350px;
         box-shadow: 0 0 0 1px #fff;
         overflow: hidden;
@@ -352,7 +390,7 @@ img {
             max-width: none;
         }
     }
-    .work-box {
+    .category-box {
         &:hover {
             .overlay {
                 opacity: 1;
@@ -409,6 +447,7 @@ img {
         h5 {
             font-size: 20px;
             margin-bottom: 20px;
+            margin-top: 20px;
         }
         p {
             line-height: 1.7428;
@@ -468,6 +507,7 @@ img {
 .footer {
     background-color: #313454;
     color: #808080;
+    // border-bottom: 2px red solid;
 }
 .footer-social {
     height: 55px;
@@ -582,11 +622,20 @@ img {
 }
 .footer-bottom {
     text-align: center;
+    // margin-bottom: 10px;
 }
+@import "news.scss";
+
 // responsive
 @media screen and (max-width:$bp-large) {
     .section {
         padding: 50px 0;
+    }
+    .flex-nav-next, .flex-nav-prev {
+        display: none;
+    }
+    .pageslider {
+        // margin-top: 5px;
     }
     #header {
         .header-content {
@@ -668,8 +717,8 @@ img {
     }
 }
 @media screen and (max-width:$bp-small-3) {
-    .works {
-        .work {
+    .categories {
+        .category {
             min-height: 175px;
 
             img {

@@ -50,14 +50,29 @@ $(function() {
 		}
 	})
 
-	$('#slider').flexslider({
+	$("#p_slider").flexslider({
 		animation: "slide",
+		// controlsContainer: true,
+		// customDirectionNav: $("p"),
+		direction: false,
 		controlNav: false,
 		animationLoop: false,
 		slideshow: false,
-		smoothHeight:false,
+		smoothHeight: false,
 		// sync: "#carousel"
-	});
+	})
+
+	$('#slider').flexslider({
+		animation: "slide",
+		// controlsContainer: true,
+		// customDirectionNav: $("p"),
+		direction: false,
+		controlNav: true,
+		animationLoop: false,
+		slideshow: false,
+		smoothHeight: false,
+		// sync: "#carousel"
+	})
 
 })
 
